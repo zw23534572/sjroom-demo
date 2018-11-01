@@ -1,0 +1,3 @@
+=A201802018800031,ownerCode=100070498,warehouseCode=7
+调用仓储查询仓单接口入参:receiptNo=A201802018800037,ownerCode=100070498,warehouseCode=7
+:receiptNo=A201802018800037,ownerCode=100070498,warehouseCode=7

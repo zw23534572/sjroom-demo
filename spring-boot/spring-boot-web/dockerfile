@@ -1,0 +1,13 @@
+FROM registry.cn-shenzhen.aliyuncs.com/sjroom/alpine-java8
+RUN mkdir -p /export/logs/spring-boot-web/
+RUN mkdir -p /export/App/spring-boot-web/
+ADD target/spring-boot-web.jar  /export/App/spring-boot-web/
+ADD service.sh /export/App/spring-boot-web/service.sh
+WORKDIR /export/App/spring-boot-web
+
+#启动、停止脚本(sprintboot)
+RUN echo "sh /export/App/spring-boot-web/service.sh start" >> /export/servers/script/start.sh
+RUN echo "sh /export/App/spring-boot-web/service.sh stop" >> /export/servers/script/stop.sh
+
+
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.idgenerate.dao.IDGenerateMapper">
+    <resultMap id="BaseResultMap"  type="com.idgenerate.domain.IDGenerate">
+        <result column="id" property="id" jdbcType="BIGINT"/>
+        <result column="stub" property="stub" jdbcType="VARCHAR"/>
+        <result column="currentMaxId" property="currentMaxId" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <!--根据服务器IP，获取当前数据库主键ID-->
+    <select id="getInfoByStub" resultMap="BaseResultMap"
+            parameterType="java.lang.String">
+        SELECT	id,stub,currentMaxId FROM id_generate where stub = #{stub}
+    </select>
+
+
+    <!--替换当前服务器IP，对应的数据库主键ID-->
+    <select id="replaceGenerateId" resultType="java.lang.Long"
+            parameterType="java.lang.String">
+        REPLACE INTO id_generate (stub) VALUES (#{stub});
+    </select>
+
+    <!--替换当前服务器IP，对应的数据库主键ID-->
+    <select id="replaceCurrentMaxIdByStub" parameterType="java.util.Map">
+        UPDATE id_generate SET currentMaxId = #{currentMaxId} where stub=#{stub}
+    </select>
+</mapper>
