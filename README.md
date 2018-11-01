@@ -40,6 +40,6 @@ manson-learning
 
 ## 如何交流、反馈、参与贡献？
 
-- Git仓库：https://gitee.com/zw23534572
+- Git仓库： https://github.com/zw23534572
 - 个人QQ群：123433403
 - 个人邮箱: zw23534572@126.com
